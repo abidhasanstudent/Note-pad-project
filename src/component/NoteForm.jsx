@@ -4,39 +4,48 @@ function NoteForm(props) {
   // create handler
   const createHandler = (event) => {
     event.preventDefault();
+    if (!props.noteTitle) {
+      return alert("Please Enter Note Title");
+    }
     const newNote = {
       id: Date.now() + "",
       title: props.noteTitle,
     };
     props.setNotes([...props.notes, newNote]);
-    props.setNoteTitle("");
+    props.setNotetitle("");
   };
-  // update handler
+
   const updateHandler = (event) => {
     event.preventDefault();
-    const updateNotes = props.notes.map((note) => {
+    const updatedNoteArray = props.notes.map((note) => {
       if (note.id === props.update.id) {
         return { ...note, title: props.noteTitle };
       } else {
         return note;
       }
     });
+    props.setNotes(updatedNoteArray);
+    props.setNotetitle("");
     props.setEdit(false);
-    props.setNoteTitle("");
-    props.setNotes(updateNotes);
   };
   return (
     <>
-      <form onSubmit={props.edit ? updateHandler : createHandler}>
+      <form
+        onSubmit={props.edit ? updateHandler : createHandler}
+        className="form"
+      >
         <input
           type="text"
+          className="input-field"
           value={props.noteTitle}
           onChange={(event) => {
-            props.setNoteTitle(event.target.value);
+            props.setNotetitle(event.target.value);
           }}
         />
-        {console.log(props.noteTitle)}
-        <button>Add note</button>
+
+        <button type="submit" className="submit-btn">
+          {props.edit ? "Update Note" : "Add Note"}
+        </button>
       </form>
     </>
   );
