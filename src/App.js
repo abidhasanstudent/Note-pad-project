@@ -4,7 +4,7 @@ import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
 
 function App() {
-  const [noteTitle, setNoteTitle] = useState("");
+  const [noteTitle, setNotetitle] = useState("");
   const [notes, setNotes] = useState([]);
   const [edit, setEdit] = useState(false);
   const [update, setUpdate] = useState(null);
@@ -18,14 +18,14 @@ function App() {
         setEdit={setEdit}
         setNotes={setNotes}
         noteTitle={noteTitle}
-        setNoteTitle={setNoteTitle}
+        setNotetitle={setNotetitle}
       />
       <NoteList
         notes={notes}
         setEdit={setEdit}
         setNotes={setNotes}
         setUpdate={setUpdate}
-        setNoteTitle={setNoteTitle}
+        setNotetitle={setNotetitle}
       />
     </div>
   );
