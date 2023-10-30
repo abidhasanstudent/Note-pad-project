@@ -12,7 +12,7 @@ function NoteForm(props) {
       title: props.noteTitle,
     };
     props.setNotes([...props.notes, newNote]);
-    props.setNotetitle("");
+    props.setNoteTitle("");
   };
 
   const updateHandler = (event) => {
@@ -25,7 +25,7 @@ function NoteForm(props) {
       }
     });
     props.setNotes(updatedNoteArray);
-    props.setNotetitle("");
+    props.setNoteTitle("");
     props.setEdit(false);
   };
   return (
@@ -39,7 +39,7 @@ function NoteForm(props) {
           className="input-field"
           value={props.noteTitle}
           onChange={(event) => {
-            props.setNotetitle(event.target.value);
+            props.setNoteTitle(event.target.value);
           }}
         />
 
