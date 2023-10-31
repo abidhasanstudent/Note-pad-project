@@ -1,14 +1,14 @@
 import React from "react";
 
-function SearchNote({ searchQuery, setSearchQuery }) {
+function SearchNote(props) {
   return (
     <div>
       <label>
         Search Notes:
         <input
           type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={props.searchQuery}
+          onChange={(e) => props.setSearchQuery(e.target.value)}
         />
       </label>
     </div>
