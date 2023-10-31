@@ -1,18 +1,18 @@
-import React, { useState } from "react";
 import "./App.css";
+import React, { useState } from "react";
 import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
 import SearchNote from "./component/SearchNote";
 import ViewOption from "./component/ViewOption";
 
 function App() {
-  const [noteTitle, setNoteTitle] = useState("");
   const [notes, setNotes] = useState([]);
   const [edit, setEdit] = useState(false);
   const [update, setUpdate] = useState(null);
-  const [selectedNotes, setSelectedNotes] = useState([]);
-  const [viewOption, setViewOption] = useState("all");
+  const [noteTitle, setNoteTitle] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [viewOption, setViewOption] = useState("all");
+  const [selectedNotes, setSelectedNotes] = useState([]);
 
   const filteredNotes = () => {
     if (viewOption === "selected") {
@@ -49,10 +49,10 @@ function App() {
         <SearchNote searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
       <NoteList
-        notes={filteredNotes()}
         setEdit={setEdit}
         setNotes={setNotes}
         setUpdate={setUpdate}
+        notes={filteredNotes()}
         setNoteTitle={setNoteTitle}
         selectedNotes={selectedNotes}
         setSelectedNotes={setSelectedNotes}

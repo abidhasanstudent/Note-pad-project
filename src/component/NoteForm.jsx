@@ -11,8 +11,8 @@ function NoteForm(props) {
       id: Date.now() + "",
       title: props.noteTitle,
     };
-    props.setNotes([...props.notes, newNote]);
     props.setNoteTitle("");
+    props.setNotes([...props.notes, newNote]);
   };
 
   const updateHandler = (event) => {
@@ -24,9 +24,9 @@ function NoteForm(props) {
         return note;
       }
     });
-    props.setNotes(updatedNoteArray);
-    props.setNoteTitle("");
     props.setEdit(false);
+    props.setNoteTitle("");
+    props.setNotes(updatedNoteArray);
   };
 
   return (
