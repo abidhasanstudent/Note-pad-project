@@ -1,7 +1,7 @@
+// NoteForm.js
 import React from "react";
 
 function NoteForm(props) {
-  // create handler
   const createHandler = (event) => {
     event.preventDefault();
     if (!props.noteTitle) {
@@ -28,6 +28,7 @@ function NoteForm(props) {
     props.setNoteTitle("");
     props.setEdit(false);
   };
+
   return (
     <>
       <form
@@ -42,7 +43,6 @@ function NoteForm(props) {
             props.setNoteTitle(event.target.value);
           }}
         />
-
         <button type="submit" className="submit-btn">
           {props.edit ? "Update Note" : "Add Note"}
         </button>
