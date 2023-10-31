@@ -1,4 +1,3 @@
-// NoteList.js
 import React from "react";
 
 function NoteList(props) {
@@ -9,8 +8,8 @@ function NoteList(props) {
 
   const editHandler = (note) => {
     props.setEdit(true);
-    props.setNoteTitle(note.title);
     props.setUpdate(note);
+    props.setNoteTitle(note.title);
   };
 
   const toggleNoteSelection = (noteId) => {
