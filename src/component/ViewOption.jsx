@@ -1,13 +1,13 @@
 import React from "react";
 
-function ViewOption({ viewOption, setViewOption }) {
+function ViewOption(props) {
   return (
     <div>
       <label>
         View Option:
         <select
-          value={viewOption}
-          onChange={(e) => setViewOption(e.target.value)}
+          value={props.viewOption}
+          onChange={(e) => props.setViewOption(e.target.value)}
         >
           <option value="all">All Notes</option>
           <option value="selected">Selected Notes</option>

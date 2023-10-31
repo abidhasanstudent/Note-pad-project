@@ -78,7 +78,7 @@ body{
   font-size: 20px;
   list-style: none;
   max-width: 500px;
-  min-height: 150px;
+  min-height: 100px;
   background: #fff;
   position: relative;
   border-radius: 9px;
@@ -86,9 +86,9 @@ body{
 }
 
 .note-btn{
-  position: absolute;
   right: 20px;
   bottom:20px;
+  position: absolute;
 }
 
 .note-btn button{
