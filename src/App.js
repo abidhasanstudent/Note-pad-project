@@ -1,7 +1,5 @@
-// App.js
-
+import React, { useState } from "react";
 import "./App.css";
-import { useState } from "react";
 import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
 
@@ -11,16 +9,26 @@ function App() {
   const [edit, setEdit] = useState(false);
   const [update, setUpdate] = useState(null);
   const [selectedNotes, setSelectedNotes] = useState([]);
-  const [viewOption, setViewOption] = useState("all"); // Default to "All Notes"
+  const [viewOption, setViewOption] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // Filter notes based on the selected view option
   const filteredNotes = () => {
     if (viewOption === "selected") {
-      return notes.filter((note) => selectedNotes.includes(note.id));
+      return notes
+        .filter((note) => selectedNotes.includes(note.id))
+        .filter((note) =>
+          note.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
     } else if (viewOption === "unselected") {
-      return notes.filter((note) => !selectedNotes.includes(note.id));
+      return notes
+        .filter((note) => !selectedNotes.includes(note.id))
+        .filter((note) =>
+          note.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
     }
-    return notes;
+    return notes.filter((note) =>
+      note.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
   };
 
   return (
@@ -47,8 +55,18 @@ function App() {
           </select>
         </label>
       </div>
+      <div>
+        <label>
+          Search Notes:
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </label>
+      </div>
       <NoteList
-        notes={filteredNotes()} // Pass filtered notes to NoteList
+        notes={filteredNotes()}
         setEdit={setEdit}
         setNotes={setNotes}
         setUpdate={setUpdate}

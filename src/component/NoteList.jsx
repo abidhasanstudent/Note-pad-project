@@ -1,21 +1,18 @@
 // NoteList.js
-
 import React from "react";
 
 function NoteList(props) {
-  //remove button
   const removeHandler = (noteId) => {
     const newNotes = props.notes.filter((note) => note.id !== noteId);
     props.setNotes(newNotes);
   };
 
-  // edit button
   const editHandler = (note) => {
     props.setEdit(true);
     props.setNoteTitle(note.title);
     props.setUpdate(note);
   };
-  // Toggle note selection
+
   const toggleNoteSelection = (noteId) => {
     if (props.selectedNotes.includes(noteId)) {
       props.setSelectedNotes(props.selectedNotes.filter((id) => id !== noteId));
