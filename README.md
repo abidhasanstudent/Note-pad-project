@@ -1,3 +1,8 @@
+## Group 3 -
+This is Notepad group project , we are try to develop notepad and follow GC instraction what is the requirement for this project...
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
