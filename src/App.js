@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
+import SearchNote from "./component/SearchNote"; // Import the new component
+import ViewOption from "./component/ViewOption";
 
 function App() {
   const [noteTitle, setNoteTitle] = useState("");
@@ -42,29 +44,9 @@ function App() {
         noteTitle={noteTitle}
         setNoteTitle={setNoteTitle}
       />
-      <div>
-        <label>
-          View Option:
-          <select
-            value={viewOption}
-            onChange={(e) => setViewOption(e.target.value)}
-          >
-            <option value="all">All Notes</option>
-            <option value="selected">Selected Notes</option>
-            <option value="unselected">Unselected Notes</option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Search Notes:
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </label>
-      </div>
+      <ViewOption viewOption={viewOption} setViewOption={setViewOption} />{" "}
+      {/* Use the ViewOption component */}
+      <SearchNote searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <NoteList
         notes={filteredNotes()}
         setEdit={setEdit}
