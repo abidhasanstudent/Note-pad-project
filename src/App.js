@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import NoteForm from "./component/NoteForm";
 import NoteList from "./component/NoteList";
-import SearchNote from "./component/SearchNote"; // Import the new component
+import SearchNote from "./component/SearchNote";
 import ViewOption from "./component/ViewOption";
 
 function App() {
@@ -44,9 +44,10 @@ function App() {
         noteTitle={noteTitle}
         setNoteTitle={setNoteTitle}
       />
-      <ViewOption viewOption={viewOption} setViewOption={setViewOption} />{" "}
-      {/* Use the ViewOption component */}
-      <SearchNote searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <div className="features-section">
+        <ViewOption viewOption={viewOption} setViewOption={setViewOption} />
+        <SearchNote searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      </div>
       <NoteList
         notes={filteredNotes()}
         setEdit={setEdit}
